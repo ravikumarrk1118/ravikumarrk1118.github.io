@@ -1,0 +1,60 @@
+<div class="container">
+  <h4>Payment Form</h4>
+  <br>
+  <div class="row">
+    <div class="form-group col">
+      <label> Customer Name  </label>
+      <input class="form-control" (input)="onNameInput($event.target.value)" />
+    </div>
+
+    <div class="col">
+      <label><b>Name</b></label>
+      <div>
+        {{ name | titlecase }} <!--using pipe : titlecase-->
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="form-group col">
+      <label> Date of Birth  </label>
+      <input type = date class="form-control" (input)="onDobInput($event.target.value)" />
+    </div>
+
+    <div class="col">
+      <label><b>DOB</b></label>
+      <div>
+        {{ dob |  date : "MMMM d, y" }} <!--using pipe : date-->
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label> Amount  </label>
+      <input  class="form-control" (input)="onAmountInput($event.target.value)" />
+    </div>
+    <div class="col">
+      <label><b>Money</b></label>
+      <div>
+        {{ amount |  currency : 'INR' }} <!--using pipe : currency-->
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label> Tax  </label>
+      <input  class="form-control" (input)="onTotInput($event.target.value)" />
+    </div>
+    <div class="col">
+      <label><b>Total</b></label>
+      <div *ngIf="tax > 10" >
+        {{ tax | convert : "gst" | currency : "INR" }} <!--using own pipe-->
+      </div>
+    </div>
+  </div>
+</div>
+{{car | json }}
+
